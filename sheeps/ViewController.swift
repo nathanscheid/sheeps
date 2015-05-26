@@ -15,8 +15,11 @@ class ViewController: UIViewController {
     var screen: CGRect! = UIScreen.mainScreen().bounds
     var width: CGFloat!
     var height: CGFloat!
+    var startbtn: UIButton!
+    var creditbtn: UIButton!
+    var menubtn: UIButton!
     
-    var label = UILabel()
+    var menuLabel = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,14 +27,13 @@ class ViewController: UIViewController {
         width = screen.width
         height = screen.height
         self.view.backgroundColor = UIColor.blackColor()
-        
         buildMenu()
         
     }
     
     func buildMenu()
     {
-        var startbtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        startbtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
         startbtn.frame = CGRectMake(width/2 - 25, height/2 - 30, 50, 25)
         startbtn.backgroundColor = UIColor.redColor()
         startbtn.setTitle("Start", forState:UIControlState.Normal)
@@ -39,23 +41,28 @@ class ViewController: UIViewController {
         startbtn.layer.cornerRadius = 5
         self.view.addSubview(startbtn)
         
-        var creditbtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        creditbtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
         creditbtn.frame = CGRectMake(width/2 - 25, height/2 + 5, 50, 25)
         creditbtn.backgroundColor = UIColor.greenColor()
         creditbtn.setTitle("Credits", forState:UIControlState.Normal)
         creditbtn.addTarget(self, action:"showCredits:", forControlEvents:UIControlEvents.TouchUpInside)
         creditbtn.layer.cornerRadius = 5
         self.view.addSubview(creditbtn)
+        
+        menuLabel.frame = CGRectMake(width/2 - 100, 100, 200, 50)
+        menuLabel.textColor = UIColor.blueColor()
+        menuLabel.textAlignment = NSTextAlignment.Center
+        menuLabel.font = UIFont(name: menuLabel.font.fontName, size: 18)
+        menuLabel.text = "XTERM 2K15"
+        self.view.addSubview(menuLabel)
     }
     
     func startGame(sender: UIButton!)
     {
-        
-        label.frame = CGRectMake(10, 10, 60, 10)
-        label.textColor = UIColor.redColor()
-        label.textAlignment = NSTextAlignment.Center
-        label.text = "MENU"
-        self.view.addSubview(label)
+        clearView()
+        menubtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        menubtn.frame = CGRectMake(width - 20, 0, 20, 20)
+        //menubtn.frame
     }
     
     func showCredits(sender: UIButton!)
