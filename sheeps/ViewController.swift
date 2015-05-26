@@ -11,6 +11,8 @@ import AVFoundation
 import Foundation
 
 class ViewController: UIViewController {
+    
+    var audioPlayer = AVAudioPlayer()
 
     var screen: CGRect! = UIScreen.mainScreen().bounds
     var width: CGFloat!
@@ -23,6 +25,7 @@ class ViewController: UIViewController {
     
     var menubtn: UIButton!
     var backArrow = UIImage(named: "arrow") as UIImage?
+    var bg = UIImage(named: "gameBG") as UIImage?
     var inGame = false
     var sheepView = UIImageView()
     var sheep = UIImage(named:"sheep") as UIImage?
@@ -39,13 +42,13 @@ class ViewController: UIViewController {
 
         width = screen.width
         height = screen.height
-        self.view.backgroundColor = UIColor.blackColor()
         buildMenu()
         
     }
     
     func buildMenu()
     {
+        self.view.backgroundColor = UIColor.blackColor()
         startbtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
         startbtn.frame = CGRectMake(width/2 - 25, height/2 - 30, 50, 40)
         startbtn.setBackgroundImage(start, forState: UIControlState.Normal)
@@ -72,6 +75,7 @@ class ViewController: UIViewController {
     {
         clearView()
         inGame = true
+        self.view.backgroundColor = UIColor(patternImage:bg!)
         
         menubtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
         menubtn.frame = CGRectMake(-30 + width, 0, 30, 30)

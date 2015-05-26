@@ -17,6 +17,7 @@
 		B4BC1EC91B14E0D900B67AE7 /* Start.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC81B14E0D900B67AE7 /* Start.png */; };
 		B4BC1ECB1B14E7F300B67AE7 /* sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1ECA1B14E7F300B67AE7 /* sheep.png */; };
 		B4BC1ECD1B14E8EA00B67AE7 /* movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC1ECC1B14E8EA00B67AE7 /* movement.swift */; };
+		B4BC1ECF1B14FCC900B67AE7 /* gameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1ECE1B14FCC900B67AE7 /* gameBG.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		B4BC1EC81B14E0D900B67AE7 /* Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start.png; sourceTree = "<group>"; };
 		B4BC1ECA1B14E7F300B67AE7 /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep.png; sourceTree = "<group>"; };
 		B4BC1ECC1B14E8EA00B67AE7 /* movement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = movement.swift; sourceTree = "<group>"; };
+		B4BC1ECE1B14FCC900B67AE7 /* gameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameBG.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				B4BC1EC41B14E04900B67AE7 /* arrow.png */,
 				B4BC1EC81B14E0D900B67AE7 /* Start.png */,
 				B4BC1ECA1B14E7F300B67AE7 /* sheep.png */,
+				B4BC1ECE1B14FCC900B67AE7 /* gameBG.png */,
 				96122D1E1B14A9F30085D5CA /* Images.xcassets */,
 				96122D201B14A9F30085D5CA /* LaunchScreen.xib */,
 				96122D151B14A9F30085D5CA /* Supporting Files */,
@@ -208,6 +211,7 @@
 				B4BC1ECB1B14E7F300B67AE7 /* sheep.png in Resources */,
 				96122D221B14A9F30085D5CA /* LaunchScreen.xib in Resources */,
 				96122D1F1B14A9F30085D5CA /* Images.xcassets in Resources */,
+				B4BC1ECF1B14FCC900B67AE7 /* gameBG.png in Resources */,
 				B4BC1EC61B14E04900B67AE7 /* arrow.png in Resources */,
 				B4BC1EC91B14E0D900B67AE7 /* Start.png in Resources */,
 			);
