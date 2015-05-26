@@ -124,7 +124,26 @@ class ViewController: UIViewController {
             var newY: CGFloat! = 6 * ydiff/magnitude + sheepView.frame.origin.y
             sheepView.frame=CGRectMake(newX, newY, 30, 30)
         }
+    
+        var sSheep = rBox()
+        var sRobot = rBox()
+        sSheep.width = 250
+        sSheep.height = 250
+        sSheep.x = 50
+        sSheep.y = 50
         
+        sRobot.width = 250
+        sRobot.height = 260
+        sRobot.x = 59
+        sRobot.y = 59
+        
+        cTest(sSheep, sRobot)
+        
+   /*     if(isCollision == true)
+        {
+        
+        
+        }*/
     }
     
     func showCredits(sender: UIButton!)
