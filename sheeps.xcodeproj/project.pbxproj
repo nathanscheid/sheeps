@@ -46,6 +46,7 @@
 		B4BC1ECA1B14E7F300B67AE7 /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep.png; sourceTree = "<group>"; };
 		B4BC1ECC1B14E8EA00B67AE7 /* movement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = movement.swift; sourceTree = "<group>"; };
 		B4BC1ECE1B14FCC900B67AE7 /* gameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameBG.png; sourceTree = "<group>"; };
+		B4BC1ED11B15089800B67AE7 /* menu.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = menu.m4a; path = ../../menu.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +96,7 @@
 				B4BC1EC81B14E0D900B67AE7 /* Start.png */,
 				B4BC1ECA1B14E7F300B67AE7 /* sheep.png */,
 				B4BC1ECE1B14FCC900B67AE7 /* gameBG.png */,
+				B4BC1ED11B15089800B67AE7 /* menu.m4a */,
 				96122D1E1B14A9F30085D5CA /* Images.xcassets */,
 				96122D201B14A9F30085D5CA /* LaunchScreen.xib */,
 				96122D151B14A9F30085D5CA /* Supporting Files */,
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				96122D161B14A9F30085D5CA /* Info.plist */,
+				B4BC1ED01B15083E00B67AE7 /* Music */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -125,6 +128,13 @@
 				96122D2C1B14A9F30085D5CA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B4BC1ED01B15083E00B67AE7 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -13,6 +13,8 @@ import Foundation
 class ViewController: UIViewController {
     
     var audioPlayer = AVAudioPlayer()
+    //var menuURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("menu", ofType: "m4a")!)
+    
 
     var screen: CGRect! = UIScreen.mainScreen().bounds
     var width: CGFloat!
@@ -73,6 +75,9 @@ class ViewController: UIViewController {
     
     func startGame(sender: UIButton!)
     {
+        //audioPlayer = AVAudioPlayer(contentsOfURL: menuURL, error: nil)
+        //audioPlayer.play()
+        
         clearView()
         inGame = true
         self.view.backgroundColor = UIColor(patternImage:bg!)
