@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var startbtn: UIButton!
     var creditbtn: UIButton!
     var menubtn: UIButton!
+    var backArrow = UIImage(named: "arrow") as UIImage?
     
     var menuLabel = UILabel()
     override func viewDidLoad() {
@@ -61,12 +62,20 @@ class ViewController: UIViewController {
     {
         clearView()
         menubtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        menubtn.frame = CGRectMake(width - 20, 0, 20, 20)
-        //menubtn.frame
+        menubtn.frame = CGRectMake(-20 + width, 0, 20, 20)
+        menubtn.setBackgroundImage(backArrow, forState: UIControlState.Normal)
+        menubtn.addTarget(self, action:"backMenu:", forControlEvents:UIControlEvents.TouchUpInside)
+        self.view.addSubview(menubtn)
     }
     
     func showCredits(sender: UIButton!)
     {}
+    
+    func backMenu(sender: UIButton!)
+    {
+        clearView()
+        buildMenu()
+    }
     
     func clearView()
     {

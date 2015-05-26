@@ -13,6 +13,7 @@
 		96122D1F1B14A9F30085D5CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96122D1E1B14A9F30085D5CA /* Images.xcassets */; };
 		96122D221B14A9F30085D5CA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96122D201B14A9F30085D5CA /* LaunchScreen.xib */; };
 		96122D2E1B14A9F30085D5CA /* sheepsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96122D2D1B14A9F30085D5CA /* sheepsTests.swift */; };
+		B4BC1EC31B14D93F00B67AE7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC21B14D93F00B67AE7 /* arrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		96122D271B14A9F30085D5CA /* sheepsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sheepsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96122D2C1B14A9F30085D5CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96122D2D1B14A9F30085D5CA /* sheepsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sheepsTests.swift; sourceTree = "<group>"; };
+		B4BC1EC21B14D93F00B67AE7 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = ../../arrow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				96122D171B14A9F30085D5CA /* AppDelegate.swift */,
 				96122D191B14A9F30085D5CA /* ViewController.swift */,
 				96122D1B1B14A9F30085D5CA /* Main.storyboard */,
+				B4BC1EC21B14D93F00B67AE7 /* arrow.png */,
 				96122D1E1B14A9F30085D5CA /* Images.xcassets */,
 				96122D201B14A9F30085D5CA /* LaunchScreen.xib */,
 				96122D151B14A9F30085D5CA /* Supporting Files */,
@@ -195,6 +198,7 @@
 				96122D1D1B14A9F30085D5CA /* Main.storyboard in Resources */,
 				96122D221B14A9F30085D5CA /* LaunchScreen.xib in Resources */,
 				96122D1F1B14A9F30085D5CA /* Images.xcassets in Resources */,
+				B4BC1EC31B14D93F00B67AE7 /* arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +350,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -358,7 +362,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
