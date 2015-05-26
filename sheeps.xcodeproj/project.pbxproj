@@ -16,6 +16,7 @@
 		B4BC1EC61B14E04900B67AE7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC41B14E04900B67AE7 /* arrow.png */; };
 		B4BC1EC91B14E0D900B67AE7 /* Start.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC81B14E0D900B67AE7 /* Start.png */; };
 		B4BC1ECB1B14E7F300B67AE7 /* sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1ECA1B14E7F300B67AE7 /* sheep.png */; };
+		B4BC1ECD1B14E8EA00B67AE7 /* movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC1ECC1B14E8EA00B67AE7 /* movement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		B4BC1EC41B14E04900B67AE7 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		B4BC1EC81B14E0D900B67AE7 /* Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start.png; sourceTree = "<group>"; };
 		B4BC1ECA1B14E7F300B67AE7 /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep.png; sourceTree = "<group>"; };
+		B4BC1ECC1B14E8EA00B67AE7 /* movement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = movement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				96122D171B14A9F30085D5CA /* AppDelegate.swift */,
 				96122D191B14A9F30085D5CA /* ViewController.swift */,
+				B4BC1ECC1B14E8EA00B67AE7 /* movement.swift */,
 				96122D1B1B14A9F30085D5CA /* Main.storyboard */,
 				B4BC1EC41B14E04900B67AE7 /* arrow.png */,
 				B4BC1EC81B14E0D900B67AE7 /* Start.png */,
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96122D1A1B14A9F30085D5CA /* ViewController.swift in Sources */,
+				B4BC1ECD1B14E8EA00B67AE7 /* movement.swift in Sources */,
 				96122D181B14A9F30085D5CA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
