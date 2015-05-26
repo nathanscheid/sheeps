@@ -15,12 +15,23 @@ class ViewController: UIViewController {
     var screen: CGRect! = UIScreen.mainScreen().bounds
     var width: CGFloat!
     var height: CGFloat!
+    
     var startbtn: UIButton!
+    var start = UIImage(named:"Start") as UIImage?
     var creditbtn: UIButton!
+    var menuLabel = UILabel()
+    
     var menubtn: UIButton!
     var backArrow = UIImage(named: "arrow") as UIImage?
+    var inGame = false
+    var sheepView = UIImageView()
+    var sheep = UIImage(named:"sheep") as UIImage?
     
-    var menuLabel = UILabel()
+    var timer: NSTimer!
+    var locationX: CGFloat!
+    var locationY: CGFloat!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -35,11 +46,9 @@ class ViewController: UIViewController {
     func buildMenu()
     {
         startbtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        startbtn.frame = CGRectMake(width/2 - 25, height/2 - 30, 50, 25)
-        startbtn.backgroundColor = UIColor.redColor()
-        startbtn.setTitle("Start", forState:UIControlState.Normal)
+        startbtn.frame = CGRectMake(width/2 - 25, height/2 - 30, 50, 40)
+        startbtn.setBackgroundImage(start, forState: UIControlState.Normal)
         startbtn.addTarget(self, action:"startGame:", forControlEvents:UIControlEvents.TouchUpInside)
-        startbtn.layer.cornerRadius = 5
         self.view.addSubview(startbtn)
         
         creditbtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
@@ -61,11 +70,41 @@ class ViewController: UIViewController {
     func startGame(sender: UIButton!)
     {
         clearView()
+        inGame = true
+        
         menubtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        menubtn.frame = CGRectMake(-20 + width, 0, 20, 20)
+        menubtn.frame = CGRectMake(-30 + width, 0, 30, 30)
         menubtn.setBackgroundImage(backArrow, forState: UIControlState.Normal)
         menubtn.addTarget(self, action:"backMenu:", forControlEvents:UIControlEvents.TouchUpInside)
         self.view.addSubview(menubtn)
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
+    {
+        var touch = touches.anyObject()! as UITouch
+        locationX = touch.locationInView(self.view).x
+        locationY = touch.locationInView(self.view).y
+        if inGame == true
+        {
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.0167, target: self, selector: Selector("sheepMove"), userInfo: nil, repeats: true)
+        }
+    }
+    
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent)
+    {
+        var touch = touches.anyObject()! as UITouch
+        locationX = touch.locationInView(self.view).x
+        locationY = touch.locationInView(self.view).y
+    }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent)
+    {
+        timer.invalidate()
+    }
+    
+    func sheepMove()
+    {
+        
     }
     
     func showCredits(sender: UIButton!)

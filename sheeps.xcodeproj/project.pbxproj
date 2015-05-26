@@ -13,7 +13,9 @@
 		96122D1F1B14A9F30085D5CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96122D1E1B14A9F30085D5CA /* Images.xcassets */; };
 		96122D221B14A9F30085D5CA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96122D201B14A9F30085D5CA /* LaunchScreen.xib */; };
 		96122D2E1B14A9F30085D5CA /* sheepsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96122D2D1B14A9F30085D5CA /* sheepsTests.swift */; };
-		B4BC1EC31B14D93F00B67AE7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC21B14D93F00B67AE7 /* arrow.png */; };
+		B4BC1EC61B14E04900B67AE7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC41B14E04900B67AE7 /* arrow.png */; };
+		B4BC1EC91B14E0D900B67AE7 /* Start.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC81B14E0D900B67AE7 /* Start.png */; };
+		B4BC1ECB1B14E7F300B67AE7 /* sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1ECA1B14E7F300B67AE7 /* sheep.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +39,9 @@
 		96122D271B14A9F30085D5CA /* sheepsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sheepsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96122D2C1B14A9F30085D5CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96122D2D1B14A9F30085D5CA /* sheepsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sheepsTests.swift; sourceTree = "<group>"; };
-		B4BC1EC21B14D93F00B67AE7 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = ../../arrow.png; sourceTree = "<group>"; };
+		B4BC1EC41B14E04900B67AE7 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		B4BC1EC81B14E0D900B67AE7 /* Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start.png; sourceTree = "<group>"; };
+		B4BC1ECA1B14E7F300B67AE7 /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +86,9 @@
 				96122D171B14A9F30085D5CA /* AppDelegate.swift */,
 				96122D191B14A9F30085D5CA /* ViewController.swift */,
 				96122D1B1B14A9F30085D5CA /* Main.storyboard */,
-				B4BC1EC21B14D93F00B67AE7 /* arrow.png */,
+				B4BC1EC41B14E04900B67AE7 /* arrow.png */,
+				B4BC1EC81B14E0D900B67AE7 /* Start.png */,
+				B4BC1ECA1B14E7F300B67AE7 /* sheep.png */,
 				96122D1E1B14A9F30085D5CA /* Images.xcassets */,
 				96122D201B14A9F30085D5CA /* LaunchScreen.xib */,
 				96122D151B14A9F30085D5CA /* Supporting Files */,
@@ -196,9 +202,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				96122D1D1B14A9F30085D5CA /* Main.storyboard in Resources */,
+				B4BC1ECB1B14E7F300B67AE7 /* sheep.png in Resources */,
 				96122D221B14A9F30085D5CA /* LaunchScreen.xib in Resources */,
 				96122D1F1B14A9F30085D5CA /* Images.xcassets in Resources */,
-				B4BC1EC31B14D93F00B67AE7 /* arrow.png in Resources */,
+				B4BC1EC61B14E04900B67AE7 /* arrow.png in Resources */,
+				B4BC1EC91B14E0D900B67AE7 /* Start.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
