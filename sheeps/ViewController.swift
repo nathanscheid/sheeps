@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     var sheepView = UIImageView()
     var sheep = UIImage(named:"sheep") as UIImage?
     
+    
     var timer: NSTimer!
     var locationX: CGFloat!
     var locationY: CGFloat!
@@ -77,6 +78,10 @@ class ViewController: UIViewController {
         menubtn.setBackgroundImage(backArrow, forState: UIControlState.Normal)
         menubtn.addTarget(self, action:"backMenu:", forControlEvents:UIControlEvents.TouchUpInside)
         self.view.addSubview(menubtn)
+        
+        sheepView.image = sheep!
+        sheepView.frame = CGRectMake(0,0,30,30)
+        self.view.addSubview(sheepView)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
@@ -104,6 +109,21 @@ class ViewController: UIViewController {
     
     func sheepMove()
     {
+        var xdiff = locationX - sheepView.center.x
+        var ydiff = locationY - sheepView.center.y
+        
+        var magnitude = sqrt(xdiff*xdiff + ydiff*ydiff)
+        
+        if magnitude <= 6
+        {
+            sheepView.frame=CGRectMake(locationX - 15, locationY - 15, 30, 30)
+        }
+        else
+        {
+            var newX: CGFloat! = 6 * xdiff/magnitude + sheepView.frame.origin.x
+            var newY: CGFloat! = 6 * ydiff/magnitude + sheepView.frame.origin.y
+            sheepView.frame=CGRectMake(newX, newY, 30, 30)
+        }
         
     }
     
