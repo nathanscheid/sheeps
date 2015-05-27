@@ -17,7 +17,6 @@ class rBox
     
 }
 
-
 func cTest(box1: rBox, box2: rBox)
 {
     if(box1.x < box2.x + box2.width && box1.x + box1.width > box2.x && box1.y < box2.y + box2.height && box1.y + box1.height > box2.y)
@@ -25,5 +24,42 @@ func cTest(box1: rBox, box2: rBox)
         
         
         
+    }
+}
+
+
+class robot
+{
+    var sizeX = 50.0
+    var newCoord = [Double]()
+    func findVector()
+    {
+        let speed = Double(arc4random_uniform(11))
+        let horizontal = Double(arc4random_uniform(21) - 10)
+        let vertical = Double(arc4random_uniform(21) - 10)
+        let horiz2 = horizontal * horizontal
+        let vert2 = vertical * vertical
+        let magnitude = sqrt(vert2 + horiz2)
+        newCoord[0] = speed * horizontal/magnitude
+        newCoord[1] = speed * vertical/magnitude
+    }
+    var imageView = UIImageView()
+    var image: UIImage?
+    func getImg()
+    {
+        let robot1 = UIImage(named: "robot1") as UIImage?
+        let robot2 = UIImage(named: "robot2") as UIImage?
+        let robot3 = UIImage(named: "robot3") as UIImage?
+        let type = Int(arc4random_uniform(3))
+        
+        switch type
+        {
+        case 0:
+            image = robot1!
+        case 1:
+            image = robot2!
+        default:
+            image = robot3!
+        }
     }
 }
