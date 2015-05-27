@@ -12,8 +12,8 @@ import Foundation
 
 class ViewController: UIViewController {
     
-    var audioPlayer = AVAudioPlayer()
-    //var menuURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("menu", ofType: "m4a")!)
+    var inGamePlayer = AVAudioPlayer()
+    var menuURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("menu", ofType: "m4a")!)
     
 
     var screen: CGRect! = UIScreen.mainScreen().bounds
@@ -75,8 +75,9 @@ class ViewController: UIViewController {
     
     func startGame(sender: UIButton!)
     {
-        //audioPlayer = AVAudioPlayer(contentsOfURL: menuURL, error: nil)
-        //audioPlayer.play()
+        inGamePlayer = AVAudioPlayer(contentsOfURL: menuURL, error: nil)
+        inGamePlayer.numberOfLoops = -1
+        inGamePlayer.play()
         
         clearView()
         inGame = true
