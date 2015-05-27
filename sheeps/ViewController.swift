@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         sheepView.frame = CGRectMake(0,0,30,30)
         self.view.addSubview(sheepView)
         
-        robTime = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("robotSpawn"), userInfo: nil, repeats: true)
+        robTime = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: Selector("robotSpawn"), userInfo: nil, repeats: true)
     }
     
     func robotSpawn()
@@ -121,6 +121,10 @@ class ViewController: UIViewController {
         let robX = bot.imageView.frame.origin.x + bot.newX
         let robY = bot.imageView.frame.origin.y + bot.newY
         bot.imageView.frame = CGRectMake(robX, robY, bot.size, bot.size)
+        if inGame == false
+        {
+            timer.invalidate()
+        }
     }
     
   /*  func executeMovement ()

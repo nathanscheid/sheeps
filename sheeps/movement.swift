@@ -49,7 +49,7 @@ class robot
     
     func Vector()
     {
-        let speed = Int(arc4random_uniform(10) + 1)
+        let speed = Int(arc4random_uniform(5) + 1)
         var yChange = random() - 10
         var xChange = Int(arc4random_uniform(21)) - 10
         
@@ -62,6 +62,11 @@ class robot
         let magnitude = Int(sqrt(Double(yChange*yChange + xChange*xChange)))
         newX = CGFloat(speed * xChange/magnitude)
         newY = CGFloat(speed * yChange/magnitude)
+        if newX == 0 && newY == 0
+        {
+            newX = 1
+            newY = -1
+        }
     }
     
     func cTest(box1: robot, box2: robot)
