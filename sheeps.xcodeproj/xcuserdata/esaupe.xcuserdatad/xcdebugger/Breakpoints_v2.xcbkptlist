@@ -182,7 +182,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sheeps/ViewController.swift"
@@ -193,6 +193,36 @@
             endingLineNumber = "98"
             landmarkName = "startGame(_:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "sheeps.ViewController.startGame (sheeps.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UIButton&gt;) -&gt; ()"
+                  moduleName = "sheeps"
+                  urlString = "file:///Users/esaupe/Desktop/sheeps/sheeps/ViewController.swift"
+                  timestampString = "454434634.7386"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "5737">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "sheeps.ViewController.(startGame (sheeps.ViewController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UIButton&gt;) -&gt; ()).(robotSpawn #1) (())()"
+                  moduleName = "sheeps"
+                  urlString = "file:///Users/esaupe/Desktop/sheeps/sheeps/ViewController.swift"
+                  timestampString = "454434634.738862"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -217,12 +247,12 @@
                   symbolName = "sheeps.ViewController.startGame (sheeps.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UIButton&gt;) -&gt; ()"
                   moduleName = "sheeps"
                   urlString = "file:///Users/esaupe/Desktop/sheeps/sheeps/ViewController.swift"
-                  timestampString = "454434509.347826"
+                  timestampString = "454434634.739625"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "99"
                   endingLineNumber = "99"
-                  offsetFromSymbolStart = "6191">
+                  offsetFromSymbolStart = "5737">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -231,7 +261,7 @@
                   symbolName = "sheeps.ViewController.(startGame (sheeps.ViewController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UIButton&gt;) -&gt; ()).(robotSpawn #1) (())()"
                   moduleName = "sheeps"
                   urlString = "file:///Users/esaupe/Desktop/sheeps/sheeps/ViewController.swift"
-                  timestampString = "454434509.348048"
+                  timestampString = "454434634.739848"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "101"

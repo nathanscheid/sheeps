@@ -95,7 +95,7 @@ class ViewController: UIViewController {
         sheepView.frame = CGRectMake(0,0,30,30)
         self.view.addSubview(sheepView)
         
-        robTime = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("robotSpawn"), userInfo: nil, repeats: true)
+        //robTime = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("robotSpawn"), userInfo: nil, repeats: true)
         func robotSpawn()
         {
             var robotExample = robot()
