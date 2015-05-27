@@ -16,10 +16,10 @@
 		B4AAC2971B15F6EA002F06A7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4AAC2961B15F6EA002F06A7 /* AVFoundation.framework */; };
 		B4AAC2991B15F6F2002F06A7 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4AAC2981B15F6F2002F06A7 /* AVKit.framework */; };
 		B4AAC29B1B15F6F8002F06A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4AAC29A1B15F6F8002F06A7 /* Foundation.framework */; };
-		B4AAC2A31B160CE3002F06A7 /* Robot 3.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2A21B160CE3002F06A7 /* Robot 3.png */; };
-		B4AAC2A61B160EA9002F06A7 /* Robot 1.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2A41B160EA9002F06A7 /* Robot 1.png */; };
-		B4AAC2A71B160EA9002F06A7 /* Robot 2.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2A51B160EA9002F06A7 /* Robot 2.png */; };
 		B4AAC2A91B16118F002F06A7 /* menu.wav in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2A81B16118F002F06A7 /* menu.wav */; };
+		B4AAC2AD1B162156002F06A7 /* robot1.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2AA1B162156002F06A7 /* robot1.png */; };
+		B4AAC2AE1B162156002F06A7 /* robot2.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2AB1B162156002F06A7 /* robot2.png */; };
+		B4AAC2AF1B162156002F06A7 /* robot3.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2AC1B162156002F06A7 /* robot3.png */; };
 		B4BC1EC61B14E04900B67AE7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC41B14E04900B67AE7 /* arrow.png */; };
 		B4BC1EC91B14E0D900B67AE7 /* Start.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC81B14E0D900B67AE7 /* Start.png */; };
 		B4BC1ECB1B14E7F300B67AE7 /* sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1ECA1B14E7F300B67AE7 /* sheep.png */; };
@@ -51,10 +51,10 @@
 		B4AAC2961B15F6EA002F06A7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B4AAC2981B15F6F2002F06A7 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		B4AAC29A1B15F6F8002F06A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B4AAC2A21B160CE3002F06A7 /* Robot 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Robot 3.png"; sourceTree = "<group>"; };
-		B4AAC2A41B160EA9002F06A7 /* Robot 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Robot 1.png"; sourceTree = "<group>"; };
-		B4AAC2A51B160EA9002F06A7 /* Robot 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Robot 2.png"; sourceTree = "<group>"; };
 		B4AAC2A81B16118F002F06A7 /* menu.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menu.wav; sourceTree = "<group>"; };
+		B4AAC2AA1B162156002F06A7 /* robot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot1.png; sourceTree = "<group>"; };
+		B4AAC2AB1B162156002F06A7 /* robot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot2.png; sourceTree = "<group>"; };
+		B4AAC2AC1B162156002F06A7 /* robot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot3.png; sourceTree = "<group>"; };
 		B4BC1EC41B14E04900B67AE7 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		B4BC1EC81B14E0D900B67AE7 /* Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start.png; sourceTree = "<group>"; };
 		B4BC1ECA1B14E7F300B67AE7 /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep.png; sourceTree = "<group>"; };
@@ -116,9 +116,9 @@
 				B4BC1EC81B14E0D900B67AE7 /* Start.png */,
 				B4BC1ECA1B14E7F300B67AE7 /* sheep.png */,
 				B4BC1ECE1B14FCC900B67AE7 /* gameBG.png */,
-				B4AAC2A41B160EA9002F06A7 /* Robot 1.png */,
-				B4AAC2A51B160EA9002F06A7 /* Robot 2.png */,
-				B4AAC2A21B160CE3002F06A7 /* Robot 3.png */,
+				B4AAC2AA1B162156002F06A7 /* robot1.png */,
+				B4AAC2AB1B162156002F06A7 /* robot2.png */,
+				B4AAC2AC1B162156002F06A7 /* robot3.png */,
 				96122D1E1B14A9F30085D5CA /* Images.xcassets */,
 				B4AAC2A81B16118F002F06A7 /* menu.wav */,
 				96122D201B14A9F30085D5CA /* LaunchScreen.xib */,
@@ -240,16 +240,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4AAC2AF1B162156002F06A7 /* robot3.png in Resources */,
 				B4AAC2A91B16118F002F06A7 /* menu.wav in Resources */,
 				96122D1D1B14A9F30085D5CA /* Main.storyboard in Resources */,
 				B4BC1ECB1B14E7F300B67AE7 /* sheep.png in Resources */,
 				96122D221B14A9F30085D5CA /* LaunchScreen.xib in Resources */,
+				B4AAC2AD1B162156002F06A7 /* robot1.png in Resources */,
 				96122D1F1B14A9F30085D5CA /* Images.xcassets in Resources */,
 				B4BC1ECF1B14FCC900B67AE7 /* gameBG.png in Resources */,
 				B4BC1EC61B14E04900B67AE7 /* arrow.png in Resources */,
-				B4AAC2A71B160EA9002F06A7 /* Robot 2.png in Resources */,
-				B4AAC2A61B160EA9002F06A7 /* Robot 1.png in Resources */,
-				B4AAC2A31B160CE3002F06A7 /* Robot 3.png in Resources */,
+				B4AAC2AE1B162156002F06A7 /* robot2.png in Resources */,
 				B4BC1EC91B14E0D900B67AE7 /* Start.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

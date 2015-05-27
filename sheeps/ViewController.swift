@@ -35,6 +35,8 @@ class ViewController: UIViewController {
     
     var robTime: NSTimer!
     
+    var robMovement: NSTimer!
+    
     var timer: NSTimer!
     var locationX: CGFloat!
     var locationY: CGFloat!
@@ -95,20 +97,36 @@ class ViewController: UIViewController {
         sheepView.frame = CGRectMake(0,0,30,30)
         self.view.addSubview(sheepView)
         
-        //robTime = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("robotSpawn"), userInfo: nil, repeats: true)
-        func robotSpawn()
-        {
-            var robotExample = robot()
-            robotExample.width = robotExample.size
-            robotExample.height = robotExample.size
-            robotExample.findVector()
-            robotExample.x = Float(Int(width)/2 - Int(robotExample.size/2))
-            robotExample.y = Float(Int(height)/2 - Int(robotExample.size/2))
-            robotExample.getImg()
-            robotExample.imageView.image = robotExample.robImage
-            robotExample.imageView.frame = CGRectMake(CGFloat(robotExample.x), CGFloat(robotExample.y), CGFloat(robotExample.size), CGFloat(robotExample.size))
-        }
+        robTime = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("robotSpawn"), userInfo: nil, repeats: true)
     }
+    
+    func robotSpawn()
+    {
+        var robotExample = robot()
+        robotExample.Vector()
+        robotExample.width = Float(robotExample.size)
+        robotExample.height = Float(robotExample.size)
+        robotExample.x = Float(Int(width)/2 - Int(robotExample.size/2))
+        robotExample.y = Float(Int(height)/2 - Int(robotExample.size/2))
+        robotExample.getImg()
+        robotExample.imageView.image = robotExample.robImage
+        robotExample.imageView.frame = CGRectMake(CGFloat(robotExample.x), CGFloat(robotExample.y), CGFloat(robotExample.size), CGFloat(robotExample.size))
+        robotExample.timer =  NSTimer.scheduledTimerWithTimeInterval(0.0167, target: self, selector: Selector("robotMove:"), userInfo: robotExample, repeats: true)
+        self.view.addSubview(robotExample.imageView)
+    }
+    
+    func robotMove(timer: NSTimer)
+    {
+        var bot = timer.userInfo as robot
+        let robX = bot.imageView.frame.origin.x + bot.newX
+        let robY = bot.imageView.frame.origin.y + bot.newY
+        bot.imageView.frame = CGRectMake(robX, robY, bot.size, bot.size)
+    }
+    
+  /*  func executeMovement ()
+    {
+        robotMove(robot)
+    }*/
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
     {
@@ -158,6 +176,8 @@ class ViewController: UIViewController {
     
     func backMenu(sender: UIButton!)
     {
+        inGamePlayer.stop()
+        robTime.invalidate()
         clearView()
         buildMenu()
     }

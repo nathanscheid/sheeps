@@ -8,28 +8,25 @@
 import Foundation
 import UIKit
 
+func random() -> Int
+{
+    return Int(arc4random_uniform(21))
+}
 
 class robot
 {
     public init(){}
-    let size = Float(arc4random_uniform(250))
+    let size = CGFloat(arc4random_uniform(140) + 10)
     var width: Float = 0.0
     var height: Float = 0.0
     var x: Float = 0.0
     var y: Float = 0.0
     
-    var newCoord = [Double]()
-    func findVector()
-    {
-        let speed = Double(arc4random_uniform(11))
-        let horizontal = Double(arc4random_uniform(21) - 10)
-        let vertical = Double(arc4random_uniform(21) - 10)
-        let horiz2 = horizontal * horizontal
-        let vert2 = vertical * vertical
-        let magnitude = sqrt(vert2 + horiz2)
-        newCoord[0] = speed * horizontal/magnitude
-        newCoord[1] = speed * vertical/magnitude
-    }
+    var timer: NSTimer!
+    
+    var newY: CGFloat! = 0
+    var newX: CGFloat! = 0
+   
     var robImage: UIImage?
     func getImg()
     {
@@ -50,6 +47,23 @@ class robot
     }
     var imageView = UIImageView()
     
+    func Vector()
+    {
+        let speed = Int(arc4random_uniform(10) + 1)
+        var yChange = random() - 10
+        var xChange = Int(arc4random_uniform(21)) - 10
+        
+        if yChange == 0 && xChange == 0
+        {
+            yChange = 1
+            xChange = -1
+        }
+        
+        let magnitude = Int(sqrt(Double(yChange*yChange + xChange*xChange)))
+        newX = CGFloat(speed * xChange/magnitude)
+        newY = CGFloat(speed * yChange/magnitude)
+    }
+    
     func cTest(box1: robot, box2: robot)
     {
         if(box1.x < box2.x + box2.width && box1.x + box1.width > box2.x && box1.y < box2.y + box2.height && box1.y + box1.height > box2.y)
@@ -59,7 +73,6 @@ class robot
             
         }
     }
-    
     
     
 }
