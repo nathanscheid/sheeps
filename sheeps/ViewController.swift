@@ -12,8 +12,9 @@ import Foundation
 
 class ViewController: UIViewController {
     
+    
     var inGamePlayer = AVAudioPlayer()
-    var menuURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("menu", ofType: "m4a")!)
+    var menuURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("menu", ofType: "wav")!)
     
 
     var screen: CGRect! = UIScreen.mainScreen().bounds
@@ -32,6 +33,7 @@ class ViewController: UIViewController {
     var sheepView = UIImageView()
     var sheep = UIImage(named:"sheep") as UIImage?
     
+    var robTime: NSTimer!
     
     var timer: NSTimer!
     var locationX: CGFloat!
@@ -92,6 +94,20 @@ class ViewController: UIViewController {
         sheepView.image = sheep!
         sheepView.frame = CGRectMake(0,0,30,30)
         self.view.addSubview(sheepView)
+        
+        robTime = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("robotSpawn"), userInfo: nil, repeats: true)
+        func robotSpawn()
+        {
+            var robotExample = robot()
+            robotExample.width = robotExample.size
+            robotExample.height = robotExample.size
+            robotExample.findVector()
+            robotExample.x = Float(Int(width)/2 - Int(robotExample.size/2))
+            robotExample.y = Float(Int(height)/2 - Int(robotExample.size/2))
+            robotExample.getImg()
+            robotExample.imageView.image = robotExample.robImage
+            robotExample.imageView.frame = CGRectMake(CGFloat(robotExample.x), CGFloat(robotExample.y), CGFloat(robotExample.size), CGFloat(robotExample.size))
+        }
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
@@ -134,26 +150,7 @@ class ViewController: UIViewController {
             var newY: CGFloat! = 6 * ydiff/magnitude + sheepView.frame.origin.y
             sheepView.frame=CGRectMake(newX, newY, 30, 30)
         }
-    
-        var sSheep = rBox()
-        var sRobot = rBox()
-        sSheep.width = 250
-        sSheep.height = 250
-        sSheep.x = 50
-        sSheep.y = 50
-        
-        sRobot.width = 250
-        sRobot.height = 260
-        sRobot.x = 59
-        sRobot.y = 59
-        
-        cTest(sSheep, sRobot)
-        
-   /*     if(isCollision == true)
-        {
-        
-        
-        }*/
+   
     }
     
     func showCredits(sender: UIButton!)

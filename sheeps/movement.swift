@@ -8,29 +8,16 @@
 import Foundation
 import UIKit
 
-class rBox
+
+class robot
 {
+    public init(){}
+    let size = Float(arc4random_uniform(250))
     var width: Float = 0.0
     var height: Float = 0.0
     var x: Float = 0.0
     var y: Float = 0.0
     
-}
-
-func cTest(box1: rBox, box2: rBox)
-{
-    if(box1.x < box2.x + box2.width && box1.x + box1.width > box2.x && box1.y < box2.y + box2.height && box1.y + box1.height > box2.y)
-    {
-        
-        
-        
-    }
-}
-
-
-class robot
-{
-    var sizeX = 50.0
     var newCoord = [Double]()
     func findVector()
     {
@@ -43,8 +30,7 @@ class robot
         newCoord[0] = speed * horizontal/magnitude
         newCoord[1] = speed * vertical/magnitude
     }
-    var imageView = UIImageView()
-    var image: UIImage?
+    var robImage: UIImage?
     func getImg()
     {
         let robot1 = UIImage(named: "robot1") as UIImage?
@@ -55,11 +41,26 @@ class robot
         switch type
         {
         case 0:
-            image = robot1!
+            robImage = robot1!
         case 1:
-            image = robot2!
+            robImage = robot2!
         default:
-            image = robot3!
+            robImage = robot3!
         }
     }
+    var imageView = UIImageView()
+    
+    func cTest(box1: robot, box2: robot)
+    {
+        if(box1.x < box2.x + box2.width && box1.x + box1.width > box2.x && box1.y < box2.y + box2.height && box1.y + box1.height > box2.y)
+        {
+            
+            
+            
+        }
+    }
+    
+    
+    
 }
+
