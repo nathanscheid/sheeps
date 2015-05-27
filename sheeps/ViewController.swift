@@ -127,11 +127,6 @@ class ViewController: UIViewController {
         }
     }
     
-  /*  func executeMovement ()
-    {
-        robotMove(robot)
-    }*/
-    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
     {
         var touch = touches.anyObject()! as UITouch
