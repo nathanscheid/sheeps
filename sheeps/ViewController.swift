@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     var sfxPlayer = AVAudioPlayer()
     var eatURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eat", ofType: "wav")!)
     var dieURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("die", ofType: "wav")!)
+    var winURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("win", ofType: "wav")!)
     
 
     var screen: CGRect! = UIScreen.mainScreen().bounds
@@ -277,7 +278,7 @@ class ViewController: UIViewController {
     
     func sheepCollision(bot: robot)
     {
-        if sheep.size > bot.size
+        if sheep.size > bot.size && sheep.size <= width
         {
             sheep.size = sheep.size + 3
             bot.imageView.frame = CGRectMake(width + 5, height + 5, 0, 0)
@@ -288,6 +289,27 @@ class ViewController: UIViewController {
             scoreInt += 1
             score.text = String(scoreInt)
         }
+            
+        else if sheep.size >= width
+        {
+            sfxPlayer = AVAudioPlayer(contentsOfURL: winURL, error: nil)
+            sfxPlayer.play()
+            inGamePlayer.stop()
+            robTime.invalidate()
+            sheep.timer.invalidate()
+            inGame = false
+            dead = true
+            clearView()
+            self.view.addSubview(menubtn)
+            self.view.addSubview(restart)
+            score.text = String(scoreInt) + " Hot damn, you won."
+            self.view.addSubview(score)
+            sheep.robImage = UIImage(named: "winSheep") as UIImage?
+            sheep.imageView.image = sheep.robImage
+            sheep.imageView.frame = CGRectMake(width/2 - 100, height/2 - 100, 200, 200)
+            self.view.addSubview(sheep.imageView)
+        }
+            
         else
         {
             sfxPlayer = AVAudioPlayer(contentsOfURL: dieURL, error: nil)
@@ -300,6 +322,7 @@ class ViewController: UIViewController {
             clearView()
             self.view.addSubview(menubtn)
             self.view.addSubview(restart)
+            score.text = String(scoreInt) + " You lose."
             self.view.addSubview(score)
             sheep.robImage = UIImage(named:"deadSheep") as UIImage?
             sheep.imageView.image = sheep.robImage
