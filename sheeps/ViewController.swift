@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     var start = UIImage(named:"Start") as UIImage?
     var creditbtn: UIButton!
     var menuLabel = UILabel()
+    var menuBG = UIImage(named:"title") as UIImage?
     
     var menubtn: UIButton!
     var restart: UIButton!
@@ -65,7 +66,8 @@ class ViewController: UIViewController {
         menuPlayer.numberOfLoops = -1
         menuPlayer.play()
         
-        self.view.backgroundColor = UIColor.blackColor()
+        self.view.backgroundColor = UIColor(patternImage:menuBG!)
+        
         startbtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
         startbtn.frame = CGRectMake(width/2 - 25, height/2 - 30, 50, 40)
         startbtn.setBackgroundImage(start, forState: UIControlState.Normal)
@@ -118,15 +120,16 @@ class ViewController: UIViewController {
         self.view.addSubview(sheep.imageView)
         
         sheep.timer = NSTimer.scheduledTimerWithTimeInterval(0.0167, target: self, selector: Selector("sheepMove"), userInfo: nil, repeats: true)
-        robTime = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: Selector("robotSpawn"), userInfo: nil, repeats: true)
+        robTime = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("robotSpawn"), userInfo: nil, repeats: true)
     }
     
     func robotSpawn()
     {
         var robotExample = robot()
+        
+        robotExample.startX = width
+        robotExample.startY = height
         robotExample.Vector()
-        robotExample.startX = width/2 - robotExample.size/2
-        robotExample.startY = height/2 - robotExample.size/2
         robotExample.getImg()
         robotExample.imageView.image = robotExample.robImage
         robotExample.imageView.frame = CGRectMake(robotExample.startX, robotExample.startY, robotExample.size, robotExample.size)
@@ -231,7 +234,7 @@ class ViewController: UIViewController {
     {
         if sheep.size > bot.size
         {
-            sheep.size = sheep.size + 1
+            sheep.size = sheep.size + 5
             bot.imageView.frame = CGRectMake(width + 5, height + 5, 0, 0)
             bot.imageView.removeFromSuperview()
             sfxPlayer = AVAudioPlayer(contentsOfURL: eatURL, error: nil)
@@ -260,6 +263,8 @@ class ViewController: UIViewController {
     
     func restart(sender: UIButton!)
     {
+        locationX = 0
+        locationY = 0
         inGame = false
         inGamePlayer.stop()
         robTime.invalidate()
@@ -270,6 +275,8 @@ class ViewController: UIViewController {
     
     func backMenu(sender: UIButton!)
     {
+        locationX = 0
+        locationY = 0
         inGame = false
         inGamePlayer.stop()
         robTime.invalidate()

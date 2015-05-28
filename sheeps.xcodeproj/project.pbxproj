@@ -27,6 +27,7 @@
 		B4AAC2B91B1769EF002F06A7 /* eat.wav in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2B81B1769EF002F06A7 /* eat.wav */; };
 		B4AAC2BB1B176A0B002F06A7 /* die.wav in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2BA1B176A0B002F06A7 /* die.wav */; };
 		B4AAC2BD1B176DA5002F06A7 /* Restart.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2BC1B176DA5002F06A7 /* Restart.png */; };
+		B4AAC2BF1B1773EF002F06A7 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2BE1B1773EF002F06A7 /* title.png */; };
 		B4BC1EC61B14E04900B67AE7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC41B14E04900B67AE7 /* arrow.png */; };
 		B4BC1EC91B14E0D900B67AE7 /* Start.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC81B14E0D900B67AE7 /* Start.png */; };
 		B4BC1ECB1B14E7F300B67AE7 /* sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1ECA1B14E7F300B67AE7 /* sheep.png */; };
@@ -69,6 +70,7 @@
 		B4AAC2B81B1769EF002F06A7 /* eat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = eat.wav; sourceTree = "<group>"; };
 		B4AAC2BA1B176A0B002F06A7 /* die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = die.wav; sourceTree = "<group>"; };
 		B4AAC2BC1B176DA5002F06A7 /* Restart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Restart.png; sourceTree = "<group>"; };
+		B4AAC2BE1B1773EF002F06A7 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
 		B4BC1EC41B14E04900B67AE7 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		B4BC1EC81B14E0D900B67AE7 /* Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start.png; sourceTree = "<group>"; };
 		B4BC1ECA1B14E7F300B67AE7 /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep.png; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				B4AAC2AC1B162156002F06A7 /* robot3.png */,
 				B4AAC2B21B1755D9002F06A7 /* blue.png */,
 				B4AAC2B01B1755B8002F06A7 /* red.png */,
+				B4AAC2BE1B1773EF002F06A7 /* title.png */,
 				96122D1E1B14A9F30085D5CA /* Images.xcassets */,
 				B4AAC2B61B176780002F06A7 /* game.wav */,
 				B4AAC2A81B16118F002F06A7 /* menu.wav */,
@@ -264,6 +267,7 @@
 				B4AAC2B71B176780002F06A7 /* game.wav in Resources */,
 				B4AAC2AF1B162156002F06A7 /* robot3.png in Resources */,
 				B4AAC2A91B16118F002F06A7 /* menu.wav in Resources */,
+				B4AAC2BF1B1773EF002F06A7 /* title.png in Resources */,
 				96122D1D1B14A9F30085D5CA /* Main.storyboard in Resources */,
 				B4AAC2B51B176455002F06A7 /* deadSheep.png in Resources */,
 				B4BC1ECB1B14E7F300B67AE7 /* sheep.png in Resources */,
