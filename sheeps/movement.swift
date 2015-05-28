@@ -18,7 +18,6 @@ class robot
     public init(){}
     var size = CGFloat(arc4random_uniform(140) + 10)
     
-    
     var startX: CGFloat = 0.0
     var startY: CGFloat = 0.0
     
@@ -48,7 +47,7 @@ class robot
         //robImage = UIImage(named: "red") as UIImage?
     }
     var imageView = UIImageView()
-    
+
     func Vector()
     {
         let speed = Int(arc4random_uniform(5) + 1)

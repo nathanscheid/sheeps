@@ -127,9 +127,29 @@ class ViewController: UIViewController {
     {
         var robotExample = robot()
         
-        robotExample.startX = width
-        robotExample.startY = height
+        var startPos = Int(arc4random_uniform(4))
         robotExample.Vector()
+        switch startPos
+        {
+        case 0:
+            robotExample.newX = fabs(robotExample.newX)
+            robotExample.startX = 0
+            robotExample.startY = height/2
+        case 1:
+            robotExample.newY = fabs(robotExample.newY)
+            robotExample.startX = width/2
+            robotExample.startY = 0
+        case 2:
+            robotExample.newX = -1*fabs(robotExample.newX)
+            robotExample.startX = width
+            robotExample.startY = height/2
+        case 3:
+            robotExample.newY = -1*fabs(robotExample.newY)
+            robotExample.startX = width/2
+            robotExample.startY = height
+        default:
+            robotExample.newX = fabs(robotExample.newX)
+        }
         robotExample.getImg()
         robotExample.imageView.image = robotExample.robImage
         robotExample.imageView.frame = CGRectMake(robotExample.startX, robotExample.startY, robotExample.size, robotExample.size)
