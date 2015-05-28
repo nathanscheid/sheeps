@@ -40,14 +40,15 @@ class ViewController: UIViewController {
     var backArrow = UIImage(named: "arrow") as UIImage?
     var bg = UIImage(named: "gameBG") as UIImage?
     var inGame = false
+    var dead = false
     var sheep = robot()
     
     var robTime: NSTimer!
     
     var robMovement: NSTimer!
     
-    var locationX: CGFloat! = 0
-    var locationY: CGFloat! = 0
+    var locationX: CGFloat!
+    var locationY: CGFloat!
     
     
     override func viewDidLoad() {
@@ -98,6 +99,9 @@ class ViewController: UIViewController {
         inGamePlayer.play()
         
         clearView()
+        
+        locationX = width/2 - 15
+        locationY = height/2 - 15
         inGame = true
         self.view.backgroundColor = UIColor(patternImage:bg!)
         
@@ -116,7 +120,7 @@ class ViewController: UIViewController {
         sheep.robImage = UIImage(named:"sheep") as UIImage?
         sheep.imageView.image = sheep.robImage
         sheep.size = 30
-        sheep.imageView.frame = CGRectMake(0,0,sheep.size,sheep.size)
+        sheep.imageView.frame = CGRectMake(width/2 - 15, height/2 - 15, sheep.size, sheep.size)
         self.view.addSubview(sheep.imageView)
         
         sheep.timer = NSTimer.scheduledTimerWithTimeInterval(0.0167, target: self, selector: Selector("sheepMove"), userInfo: nil, repeats: true)
@@ -133,12 +137,12 @@ class ViewController: UIViewController {
         {
         case 0:
             robotExample.newX = fabs(robotExample.newX)
-            robotExample.startX = 0
+            robotExample.startX = 0 - robotExample.size
             robotExample.startY = height/2
         case 1:
             robotExample.newY = fabs(robotExample.newY)
-            robotExample.startX = width/2
-            robotExample.startY = 0
+            robotExample.startX = width/2 - robotExample.size
+            robotExample.startY = 0 - robotExample.size
         case 2:
             robotExample.newX = -1*fabs(robotExample.newX)
             robotExample.startX = width
@@ -159,6 +163,10 @@ class ViewController: UIViewController {
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
     {
+        if dead == true
+        {
+            restart(restart)
+        }
         var touch = touches.anyObject()! as UITouch
         locationX = touch.locationInView(self.view).x
         locationY = touch.locationInView(self.view).y
@@ -221,24 +229,32 @@ class ViewController: UIViewController {
         var xCol = false
         var yCol = false
         
+        let sheepHitBoxX = sheep.imageView.frame.origin.x - sheep.size/4
+        let sheepHitBoxY = sheep.imageView.frame.origin.y - sheep.size/4
+        let sheepHitBoxSize = 3*sheep.size/4
+        
+        let botHitBoxX = bot.imageView.frame.origin.x - bot.size/4
+        let botHitBoxY = bot.imageView.frame.origin.y - bot.size/4
+        let botHitBoxSize = 3*bot.size/4
+        
         //test for same x
-        if sheep.imageView.frame.origin.x <= bot.imageView.frame.origin.x && sheep.imageView.frame.origin.x + sheep.size >= bot.imageView.frame.origin.x
+        if sheepHitBoxX <= botHitBoxX && sheepHitBoxX + sheepHitBoxSize >= botHitBoxX
         {
             xCol = true
         }
             
-        else if sheep.imageView.frame.origin.x <= bot.imageView.frame.origin.x + bot.size && sheep.imageView.frame.origin.x + sheep.size >= bot.imageView.frame.origin.x + bot.size
+        else if sheepHitBoxX <= botHitBoxX + botHitBoxSize && sheepHitBoxX + sheepHitBoxSize >= botHitBoxX + botHitBoxSize
         {
             xCol = true
         }
         
         //test for same y
-        if sheep.imageView.frame.origin.y <= bot.imageView.frame.origin.y && sheep.imageView.frame.origin.y + sheep.size >= bot.imageView.frame.origin.y
+        if sheepHitBoxY <= botHitBoxY && sheepHitBoxY + sheepHitBoxSize >= botHitBoxY
         {
             yCol = true
         }
             
-        else if sheep.imageView.frame.origin.y <= bot.imageView.frame.origin.y + bot.size && sheep.imageView.frame.origin.y + sheep.size >= bot.imageView.frame.origin.y + bot.size
+        else if sheepHitBoxY <= botHitBoxY + botHitBoxSize && sheepHitBoxY + sheepHitBoxSize >= botHitBoxY + botHitBoxSize
         {
             yCol = true
         }
@@ -254,7 +270,7 @@ class ViewController: UIViewController {
     {
         if sheep.size > bot.size
         {
-            sheep.size = sheep.size + 5
+            sheep.size = sheep.size + 3
             bot.imageView.frame = CGRectMake(width + 5, height + 5, 0, 0)
             bot.imageView.removeFromSuperview()
             sfxPlayer = AVAudioPlayer(contentsOfURL: eatURL, error: nil)
@@ -268,6 +284,7 @@ class ViewController: UIViewController {
             robTime.invalidate()
             sheep.timer.invalidate()
             inGame = false
+            dead = true
             clearView()
             self.view.addSubview(menubtn)
             
@@ -283,9 +300,10 @@ class ViewController: UIViewController {
     
     func restart(sender: UIButton!)
     {
-        locationX = 0
-        locationY = 0
+        locationX = width/2 - 15
+        locationY = height/2 - 15
         inGame = false
+        dead = false
         inGamePlayer.stop()
         robTime.invalidate()
         sheep.timer.invalidate()
@@ -295,8 +313,8 @@ class ViewController: UIViewController {
     
     func backMenu(sender: UIButton!)
     {
-        locationX = 0
-        locationY = 0
+        locationX = width/2 - 15
+        locationY = width/2 - 15
         inGame = false
         inGamePlayer.stop()
         robTime.invalidate()
