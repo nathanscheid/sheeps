@@ -16,7 +16,7 @@ func random() -> Int
 class robot
 {
     public init(){}
-    var size = CGFloat(arc4random_uniform(140) + 10)
+    var size = CGFloat(arc4random_uniform(165) + 10)
     
     var startX: CGFloat = 0.0
     var startY: CGFloat = 0.0

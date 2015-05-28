@@ -37,6 +37,7 @@ class ViewController: UIViewController {
     var menubtn: UIButton!
     var restart: UIButton!
     var score = UILabel()
+    var scoreInt = 0
     var restartImg = UIImage(named: "restart") as UIImage?
     var backArrow = UIImage(named: "arrow") as UIImage?
     var bg = UIImage(named: "gameBG") as UIImage?
@@ -94,6 +95,7 @@ class ViewController: UIViewController {
     
     func startGame(sender: UIButton!)
     {
+        scoreInt = 0
         menuPlayer.stop()
         inGamePlayer = AVAudioPlayer(contentsOfURL: gameURL, error: nil)
         inGamePlayer.numberOfLoops = -1
@@ -105,6 +107,12 @@ class ViewController: UIViewController {
         locationY = height/2 - 15
         inGame = true
         self.view.backgroundColor = UIColor(patternImage:bg!)
+        
+        score.frame = CGRectMake(width/2 - 100, 0, 200, 50)
+        score.textColor = UIColor.orangeColor()
+        score.textAlignment = NSTextAlignment.Center
+        score.text = String(scoreInt)
+        self.view.addSubview(score)
         
         menubtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
         menubtn.frame = CGRectMake(-30 + width, 0, 30, 30)
@@ -230,12 +238,12 @@ class ViewController: UIViewController {
         var xCol = false
         var yCol = false
         
-        let sheepHitBoxX = sheep.imageView.frame.origin.x + sheep.size/4
-        let sheepHitBoxY = sheep.imageView.frame.origin.y + sheep.size/4
+        let sheepHitBoxX = sheep.imageView.frame.origin.x + sheep.size/8
+        let sheepHitBoxY = sheep.imageView.frame.origin.y + sheep.size/8
         let sheepHitBoxSize = 3*sheep.size/4
         
-        let botHitBoxX = bot.imageView.frame.origin.x + bot.size/4
-        let botHitBoxY = bot.imageView.frame.origin.y + bot.size/4
+        let botHitBoxX = bot.imageView.frame.origin.x + bot.size/8
+        let botHitBoxY = bot.imageView.frame.origin.y + bot.size/8
         let botHitBoxSize = 3*bot.size/4
         
         //test for same x
@@ -276,6 +284,9 @@ class ViewController: UIViewController {
             bot.imageView.removeFromSuperview()
             sfxPlayer = AVAudioPlayer(contentsOfURL: eatURL, error: nil)
             sfxPlayer.play()
+            
+            scoreInt += 1
+            score.text = String(scoreInt)
         }
         else
         {
@@ -288,9 +299,8 @@ class ViewController: UIViewController {
             dead = true
             clearView()
             self.view.addSubview(menubtn)
-            
             self.view.addSubview(restart)
-            
+            self.view.addSubview(score)
             sheep.robImage = UIImage(named:"deadSheep") as UIImage?
             sheep.imageView.image = sheep.robImage
             sheep.imageView.frame = CGRectMake(width/2 - sheep.size/2, height/2 - sheep.size/2, sheep.size, sheep.size)
@@ -317,6 +327,7 @@ class ViewController: UIViewController {
         locationX = width/2 - 15
         locationY = width/2 - 15
         inGame = false
+        dead = false
         inGamePlayer.stop()
         robTime.invalidate()
         sheep.timer.invalidate()
