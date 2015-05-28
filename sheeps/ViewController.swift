@@ -14,7 +14,14 @@ class ViewController: UIViewController {
     
     
     var inGamePlayer = AVAudioPlayer()
+    var gameURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("game", ofType: "wav")!)
+    
+    var menuPlayer = AVAudioPlayer()
     var menuURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("menu", ofType: "wav")!)
+    
+    var sfxPlayer = AVAudioPlayer()
+    var eatURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eat", ofType: "wav")!)
+    var dieURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("die", ofType: "wav")!)
     
 
     var screen: CGRect! = UIScreen.mainScreen().bounds
@@ -27,19 +34,19 @@ class ViewController: UIViewController {
     var menuLabel = UILabel()
     
     var menubtn: UIButton!
+    var restart: UIButton!
+    var restartImg = UIImage(named: "restart") as UIImage?
     var backArrow = UIImage(named: "arrow") as UIImage?
     var bg = UIImage(named: "gameBG") as UIImage?
     var inGame = false
-    var sheepView = UIImageView()
-    var sheep = UIImage(named:"sheep") as UIImage?
+    var sheep = robot()
     
     var robTime: NSTimer!
     
     var robMovement: NSTimer!
     
-    var timer: NSTimer!
-    var locationX: CGFloat!
-    var locationY: CGFloat!
+    var locationX: CGFloat! = 0
+    var locationY: CGFloat! = 0
     
     
     override func viewDidLoad() {
@@ -54,6 +61,10 @@ class ViewController: UIViewController {
     
     func buildMenu()
     {
+        menuPlayer = AVAudioPlayer(contentsOfURL: menuURL, error: nil)
+        menuPlayer.numberOfLoops = -1
+        menuPlayer.play()
+        
         self.view.backgroundColor = UIColor.blackColor()
         startbtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
         startbtn.frame = CGRectMake(width/2 - 25, height/2 - 30, 50, 40)
@@ -79,7 +90,8 @@ class ViewController: UIViewController {
     
     func startGame(sender: UIButton!)
     {
-        inGamePlayer = AVAudioPlayer(contentsOfURL: menuURL, error: nil)
+        menuPlayer.stop()
+        inGamePlayer = AVAudioPlayer(contentsOfURL: gameURL, error: nil)
         inGamePlayer.numberOfLoops = -1
         inGamePlayer.play()
         
@@ -93,10 +105,19 @@ class ViewController: UIViewController {
         menubtn.addTarget(self, action:"backMenu:", forControlEvents:UIControlEvents.TouchUpInside)
         self.view.addSubview(menubtn)
         
-        sheepView.image = sheep!
-        sheepView.frame = CGRectMake(0,0,30,30)
-        self.view.addSubview(sheepView)
+        restart = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        restart.frame = CGRectMake(width - 70, 0, 30, 30)
+        restart.setBackgroundImage(restartImg, forState: UIControlState.Normal)
+        restart.addTarget(self, action:"restart:", forControlEvents:UIControlEvents.TouchUpInside)
+        self.view.addSubview(restart)
         
+        sheep.robImage = UIImage(named:"sheep") as UIImage?
+        sheep.imageView.image = sheep.robImage
+        sheep.size = 30
+        sheep.imageView.frame = CGRectMake(0,0,sheep.size,sheep.size)
+        self.view.addSubview(sheep.imageView)
+        
+        sheep.timer = NSTimer.scheduledTimerWithTimeInterval(0.0167, target: self, selector: Selector("sheepMove"), userInfo: nil, repeats: true)
         robTime = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: Selector("robotSpawn"), userInfo: nil, repeats: true)
     }
     
@@ -104,27 +125,13 @@ class ViewController: UIViewController {
     {
         var robotExample = robot()
         robotExample.Vector()
-        robotExample.width = Float(robotExample.size)
-        robotExample.height = Float(robotExample.size)
-        robotExample.x = Float(Int(width)/2 - Int(robotExample.size/2))
-        robotExample.y = Float(Int(height)/2 - Int(robotExample.size/2))
+        robotExample.startX = width/2 - robotExample.size/2
+        robotExample.startY = height/2 - robotExample.size/2
         robotExample.getImg()
         robotExample.imageView.image = robotExample.robImage
-        robotExample.imageView.frame = CGRectMake(CGFloat(robotExample.x), CGFloat(robotExample.y), CGFloat(robotExample.size), CGFloat(robotExample.size))
+        robotExample.imageView.frame = CGRectMake(robotExample.startX, robotExample.startY, robotExample.size, robotExample.size)
         robotExample.timer =  NSTimer.scheduledTimerWithTimeInterval(0.0167, target: self, selector: Selector("robotMove:"), userInfo: robotExample, repeats: true)
         self.view.addSubview(robotExample.imageView)
-    }
-    
-    func robotMove(timer: NSTimer)
-    {
-        var bot = timer.userInfo as robot
-        let robX = bot.imageView.frame.origin.x + bot.newX
-        let robY = bot.imageView.frame.origin.y + bot.newY
-        bot.imageView.frame = CGRectMake(robX, robY, bot.size, bot.size)
-        if inGame == false
-        {
-            timer.invalidate()
-        }
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
@@ -132,10 +139,6 @@ class ViewController: UIViewController {
         var touch = touches.anyObject()! as UITouch
         locationX = touch.locationInView(self.view).x
         locationY = touch.locationInView(self.view).y
-        if inGame == true
-        {
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.0167, target: self, selector: Selector("sheepMove"), userInfo: nil, repeats: true)
-        }
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent)
@@ -145,41 +148,138 @@ class ViewController: UIViewController {
         locationY = touch.locationInView(self.view).y
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent)
-    {
-        timer.invalidate()
-    }
-    
     func sheepMove()
     {
-        var xdiff = locationX - sheepView.center.x
-        var ydiff = locationY - sheepView.center.y
+        var xdiff = locationX - sheep.imageView.center.x
+        var ydiff = locationY - sheep.imageView.center.y
         
         var magnitude = sqrt(xdiff*xdiff + ydiff*ydiff)
         
         if magnitude <= 6
         {
-            sheepView.frame=CGRectMake(locationX - 15, locationY - 15, 30, 30)
+            sheep.imageView.frame=CGRectMake(locationX - sheep.size/2, locationY - sheep.size/2, sheep.size, sheep.size)
         }
         else
         {
-            var newX: CGFloat! = 6 * xdiff/magnitude + sheepView.frame.origin.x
-            var newY: CGFloat! = 6 * ydiff/magnitude + sheepView.frame.origin.y
-            sheepView.frame=CGRectMake(newX, newY, 30, 30)
+            var newX: CGFloat! = 6 * xdiff/magnitude + sheep.imageView.frame.origin.x
+            var newY: CGFloat! = 6 * ydiff/magnitude + sheep.imageView.frame.origin.y
+            sheep.imageView.frame=CGRectMake(newX, newY, sheep.size, sheep.size)
         }
-   
+    }
+    
+    func robotMove(timer: NSTimer)
+    {
+        var bot = timer.userInfo as robot
+        let robX = bot.imageView.frame.origin.x + bot.newX
+        let robY = bot.imageView.frame.origin.y + bot.newY
+        bot.imageView.frame = CGRectMake(robX, robY, bot.size, bot.size)
+        
+        if inGame == false || posTest(bot).outOfScreen
+        {
+            timer.invalidate()
+            bot.imageView.removeFromSuperview()
+        }
+        if posTest(bot).collision == true
+        {
+            sheepCollision(bot)
+        }
+    }
+    
+    func posTest(bot: robot) -> (outOfScreen:Bool, collision: Bool)
+    {
+        let x = bot.imageView.frame.origin.x
+        let y = bot.imageView.frame.origin.y
+        var outOfScreen = false
+        var collided = false
+        if x > width || y > height || x < 0 - bot.size || y < 0 - bot.size
+        {
+            outOfScreen = true
+        }
+        var xCol = false
+        var yCol = false
+        
+        //test for same x
+        if sheep.imageView.frame.origin.x <= bot.imageView.frame.origin.x && sheep.imageView.frame.origin.x + sheep.size >= bot.imageView.frame.origin.x
+        {
+            xCol = true
+        }
+            
+        else if sheep.imageView.frame.origin.x <= bot.imageView.frame.origin.x + bot.size && sheep.imageView.frame.origin.x + sheep.size >= bot.imageView.frame.origin.x + bot.size
+        {
+            xCol = true
+        }
+        
+        //test for same y
+        if sheep.imageView.frame.origin.y <= bot.imageView.frame.origin.y && sheep.imageView.frame.origin.y + sheep.size >= bot.imageView.frame.origin.y
+        {
+            yCol = true
+        }
+            
+        else if sheep.imageView.frame.origin.y <= bot.imageView.frame.origin.y + bot.size && sheep.imageView.frame.origin.y + sheep.size >= bot.imageView.frame.origin.y + bot.size
+        {
+            yCol = true
+        }
+        
+        if xCol == true && yCol == true
+        {
+            collided = true
+        }
+        return (outOfScreen, collided)
+    }
+    
+    func sheepCollision(bot: robot)
+    {
+        if sheep.size > bot.size
+        {
+            sheep.size = sheep.size + 1
+            bot.imageView.frame = CGRectMake(width + 5, height + 5, 0, 0)
+            bot.imageView.removeFromSuperview()
+            sfxPlayer = AVAudioPlayer(contentsOfURL: eatURL, error: nil)
+            sfxPlayer.play()
+        }
+        else
+        {
+            sfxPlayer = AVAudioPlayer(contentsOfURL: dieURL, error: nil)
+            sfxPlayer.play()
+            inGamePlayer.stop()
+            robTime.invalidate()
+            sheep.timer.invalidate()
+            inGame = false
+            clearView()
+            self.view.addSubview(menubtn)
+            
+            self.view.addSubview(restart)
+            
+            sheep.robImage = UIImage(named:"deadSheep") as UIImage?
+            sheep.imageView.image = sheep.robImage
+            sheep.imageView.frame = CGRectMake(width/2 - sheep.size/2, height/2 - sheep.size/2, sheep.size, sheep.size)
+            self.view.addSubview(sheep.imageView)
+
+        }
+    }
+    
+    func restart(sender: UIButton!)
+    {
+        inGame = false
+        inGamePlayer.stop()
+        robTime.invalidate()
+        sheep.timer.invalidate()
+        clearView()
+        startGame(sender)
+    }
+    
+    func backMenu(sender: UIButton!)
+    {
+        inGame = false
+        inGamePlayer.stop()
+        robTime.invalidate()
+        sheep.timer.invalidate()
+        clearView()
+        buildMenu()
     }
     
     func showCredits(sender: UIButton!)
     {}
-    
-    func backMenu(sender: UIButton!)
-    {
-        inGamePlayer.stop()
-        robTime.invalidate()
-        clearView()
-        buildMenu()
-    }
     
     func clearView()
     {

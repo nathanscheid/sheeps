@@ -16,11 +16,9 @@ func random() -> Int
 class robot
 {
     public init(){}
-    let size = CGFloat(arc4random_uniform(140) + 10)
-    var width: Float = 0.0
-    var height: Float = 0.0
-    var x: Float = 0.0
-    var y: Float = 0.0
+    var size = CGFloat(arc4random_uniform(140) + 10)
+    var startX: CGFloat = 0.0
+    var startY: CGFloat = 0.0
     
     var timer: NSTimer!
     
@@ -44,6 +42,8 @@ class robot
         default:
             robImage = robot3!
         }
+
+        //robImage = UIImage(named: "red") as UIImage?
     }
     var imageView = UIImageView()
     
@@ -68,17 +68,5 @@ class robot
             newY = -1
         }
     }
-    
-    func cTest(box1: robot, box2: robot)
-    {
-        if(box1.x < box2.x + box2.width && box1.x + box1.width > box2.x && box1.y < box2.y + box2.height && box1.y + box1.height > box2.y)
-        {
-            
-            
-            
-        }
-    }
-    
-    
 }
 

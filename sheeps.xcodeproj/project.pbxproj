@@ -20,6 +20,13 @@
 		B4AAC2AD1B162156002F06A7 /* robot1.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2AA1B162156002F06A7 /* robot1.png */; };
 		B4AAC2AE1B162156002F06A7 /* robot2.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2AB1B162156002F06A7 /* robot2.png */; };
 		B4AAC2AF1B162156002F06A7 /* robot3.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2AC1B162156002F06A7 /* robot3.png */; };
+		B4AAC2B11B1755B8002F06A7 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2B01B1755B8002F06A7 /* red.png */; };
+		B4AAC2B31B1755D9002F06A7 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2B21B1755D9002F06A7 /* blue.png */; };
+		B4AAC2B51B176455002F06A7 /* deadSheep.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2B41B176455002F06A7 /* deadSheep.png */; };
+		B4AAC2B71B176780002F06A7 /* game.wav in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2B61B176780002F06A7 /* game.wav */; };
+		B4AAC2B91B1769EF002F06A7 /* eat.wav in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2B81B1769EF002F06A7 /* eat.wav */; };
+		B4AAC2BB1B176A0B002F06A7 /* die.wav in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2BA1B176A0B002F06A7 /* die.wav */; };
+		B4AAC2BD1B176DA5002F06A7 /* Restart.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AAC2BC1B176DA5002F06A7 /* Restart.png */; };
 		B4BC1EC61B14E04900B67AE7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC41B14E04900B67AE7 /* arrow.png */; };
 		B4BC1EC91B14E0D900B67AE7 /* Start.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1EC81B14E0D900B67AE7 /* Start.png */; };
 		B4BC1ECB1B14E7F300B67AE7 /* sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BC1ECA1B14E7F300B67AE7 /* sheep.png */; };
@@ -55,6 +62,13 @@
 		B4AAC2AA1B162156002F06A7 /* robot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot1.png; sourceTree = "<group>"; };
 		B4AAC2AB1B162156002F06A7 /* robot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot2.png; sourceTree = "<group>"; };
 		B4AAC2AC1B162156002F06A7 /* robot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot3.png; sourceTree = "<group>"; };
+		B4AAC2B01B1755B8002F06A7 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		B4AAC2B21B1755D9002F06A7 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
+		B4AAC2B41B176455002F06A7 /* deadSheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deadSheep.png; sourceTree = "<group>"; };
+		B4AAC2B61B176780002F06A7 /* game.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = game.wav; sourceTree = "<group>"; };
+		B4AAC2B81B1769EF002F06A7 /* eat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = eat.wav; sourceTree = "<group>"; };
+		B4AAC2BA1B176A0B002F06A7 /* die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = die.wav; sourceTree = "<group>"; };
+		B4AAC2BC1B176DA5002F06A7 /* Restart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Restart.png; sourceTree = "<group>"; };
 		B4BC1EC41B14E04900B67AE7 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		B4BC1EC81B14E0D900B67AE7 /* Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start.png; sourceTree = "<group>"; };
 		B4BC1ECA1B14E7F300B67AE7 /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep.png; sourceTree = "<group>"; };
@@ -114,13 +128,20 @@
 				96122D1B1B14A9F30085D5CA /* Main.storyboard */,
 				B4BC1EC41B14E04900B67AE7 /* arrow.png */,
 				B4BC1EC81B14E0D900B67AE7 /* Start.png */,
+				B4AAC2BC1B176DA5002F06A7 /* Restart.png */,
 				B4BC1ECA1B14E7F300B67AE7 /* sheep.png */,
+				B4AAC2B41B176455002F06A7 /* deadSheep.png */,
 				B4BC1ECE1B14FCC900B67AE7 /* gameBG.png */,
 				B4AAC2AA1B162156002F06A7 /* robot1.png */,
 				B4AAC2AB1B162156002F06A7 /* robot2.png */,
 				B4AAC2AC1B162156002F06A7 /* robot3.png */,
+				B4AAC2B21B1755D9002F06A7 /* blue.png */,
+				B4AAC2B01B1755B8002F06A7 /* red.png */,
 				96122D1E1B14A9F30085D5CA /* Images.xcassets */,
+				B4AAC2B61B176780002F06A7 /* game.wav */,
 				B4AAC2A81B16118F002F06A7 /* menu.wav */,
+				B4AAC2B81B1769EF002F06A7 /* eat.wav */,
+				B4AAC2BA1B176A0B002F06A7 /* die.wav */,
 				96122D201B14A9F30085D5CA /* LaunchScreen.xib */,
 				96122D151B14A9F30085D5CA /* Supporting Files */,
 			);
@@ -240,16 +261,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4AAC2B71B176780002F06A7 /* game.wav in Resources */,
 				B4AAC2AF1B162156002F06A7 /* robot3.png in Resources */,
 				B4AAC2A91B16118F002F06A7 /* menu.wav in Resources */,
 				96122D1D1B14A9F30085D5CA /* Main.storyboard in Resources */,
+				B4AAC2B51B176455002F06A7 /* deadSheep.png in Resources */,
 				B4BC1ECB1B14E7F300B67AE7 /* sheep.png in Resources */,
 				96122D221B14A9F30085D5CA /* LaunchScreen.xib in Resources */,
 				B4AAC2AD1B162156002F06A7 /* robot1.png in Resources */,
+				B4AAC2B31B1755D9002F06A7 /* blue.png in Resources */,
 				96122D1F1B14A9F30085D5CA /* Images.xcassets in Resources */,
 				B4BC1ECF1B14FCC900B67AE7 /* gameBG.png in Resources */,
 				B4BC1EC61B14E04900B67AE7 /* arrow.png in Resources */,
+				B4AAC2B11B1755B8002F06A7 /* red.png in Resources */,
+				B4AAC2BD1B176DA5002F06A7 /* Restart.png in Resources */,
+				B4AAC2B91B1769EF002F06A7 /* eat.wav in Resources */,
 				B4AAC2AE1B162156002F06A7 /* robot2.png in Resources */,
+				B4AAC2BB1B176A0B002F06A7 /* die.wav in Resources */,
 				B4BC1EC91B14E0D900B67AE7 /* Start.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
