@@ -36,6 +36,7 @@ class ViewController: UIViewController {
     
     var menubtn: UIButton!
     var restart: UIButton!
+    var score = UILabel()
     var restartImg = UIImage(named: "restart") as UIImage?
     var backArrow = UIImage(named: "arrow") as UIImage?
     var bg = UIImage(named: "gameBG") as UIImage?
@@ -229,12 +230,12 @@ class ViewController: UIViewController {
         var xCol = false
         var yCol = false
         
-        let sheepHitBoxX = sheep.imageView.frame.origin.x - sheep.size/4
-        let sheepHitBoxY = sheep.imageView.frame.origin.y - sheep.size/4
+        let sheepHitBoxX = sheep.imageView.frame.origin.x + sheep.size/4
+        let sheepHitBoxY = sheep.imageView.frame.origin.y + sheep.size/4
         let sheepHitBoxSize = 3*sheep.size/4
         
-        let botHitBoxX = bot.imageView.frame.origin.x - bot.size/4
-        let botHitBoxY = bot.imageView.frame.origin.y - bot.size/4
+        let botHitBoxX = bot.imageView.frame.origin.x + bot.size/4
+        let botHitBoxY = bot.imageView.frame.origin.y + bot.size/4
         let botHitBoxSize = 3*bot.size/4
         
         //test for same x
