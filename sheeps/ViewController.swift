@@ -23,7 +23,6 @@ class ViewController: UIViewController {
     var eatURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eat", ofType: "wav")!)
     var dieURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("die", ofType: "wav")!)
     var winURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("win", ofType: "wav")!)
-    
 
     var screen: CGRect! = UIScreen.mainScreen().bounds
     var width: CGFloat!
@@ -73,13 +72,13 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor(patternImage:menuBG!)
         
         startbtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        startbtn.frame = CGRectMake(width/2 - 25, height/2 - 30, 50, 40)
+        startbtn.frame = CGRectMake(width/2 - 50, height/2 - 60, 100, 80)
         startbtn.setBackgroundImage(start, forState: UIControlState.Normal)
         startbtn.addTarget(self, action:"startGame:", forControlEvents:UIControlEvents.TouchUpInside)
         self.view.addSubview(startbtn)
         
         creditbtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        creditbtn.frame = CGRectMake(width/2 - 25, height/2 + 5, 50, 25)
+        creditbtn.frame = CGRectMake(width/2 - 50, height/2 + 30, 100, 40)
         creditbtn.backgroundColor = UIColor.greenColor()
         creditbtn.setTitle("Credits", forState:UIControlState.Normal)
         creditbtn.addTarget(self, action:"showCredits:", forControlEvents:UIControlEvents.TouchUpInside)

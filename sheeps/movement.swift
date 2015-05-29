@@ -32,7 +32,10 @@ class robot
         let robot1 = UIImage(named: "robot1") as UIImage?
         let robot2 = UIImage(named: "robot2") as UIImage?
         let robot3 = UIImage(named: "robot3") as UIImage?
-        let type = Int(arc4random_uniform(3))
+        let robot4 = UIImage(named: "robot4") as UIImage?
+        let robot5 = UIImage(named: "robot5") as UIImage?
+        let robot6 = UIImage(named: "robot6") as UIImage?
+        let type = Int(arc4random_uniform(6))
         
         switch type
         {
@@ -40,8 +43,15 @@ class robot
             robImage = robot1!
         case 1:
             robImage = robot2!
-        default:
+        case 2:
             robImage = robot3!
+        case 3:
+            robImage = robot4!
+        case 4:
+            robImage = robot5!
+        default:
+            robImage = robot6!
+
         }
 
     }
