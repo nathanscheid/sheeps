@@ -226,7 +226,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func posTest(bot: robot) -> (outOfScreen:Bool, collision: Bool)
+    func posTest(bot: robot) -> (outOfScreen: Bool, collision: Bool)
     {
         let x = bot.imageView.frame.origin.x
         let y = bot.imageView.frame.origin.y
@@ -236,8 +236,6 @@ class ViewController: UIViewController {
         {
             outOfScreen = true
         }
-        var xCol = false
-        var yCol = false
         
         let sheepHitBoxX = sheep.imageView.frame.origin.x + sheep.size/8
         let sheepHitBoxY = sheep.imageView.frame.origin.y + sheep.size/8
@@ -247,33 +245,41 @@ class ViewController: UIViewController {
         let botHitBoxY = bot.imageView.frame.origin.y + bot.size/8
         let botHitBoxSize = 3*bot.size/4
         
+        collided = cTest(sheepHitBoxX, y1: sheepHitBoxY, size1: sheepHitBoxSize, x2: botHitBoxX, y2: botHitBoxY, size2: botHitBoxSize)
+        if collided == false
+        {
+            collided = cTest(botHitBoxX, y1: botHitBoxY, size1: botHitBoxSize, x2: sheepHitBoxX, y2: sheepHitBoxY, size2: sheepHitBoxSize)
+        }
+        return (outOfScreen, collided)
+    }
+    
+    func cTest(x1: CGFloat, y1: CGFloat, size1: CGFloat, x2: CGFloat, y2: CGFloat, size2: CGFloat) -> Bool
+    {
+        var xCol = false
+        var yCol = false
         //test for same x
-        if sheepHitBoxX <= botHitBoxX && sheepHitBoxX + sheepHitBoxSize >= botHitBoxX
+        if x1 <= x2 && x1 + size1 >= x2
         {
             xCol = true
         }
             
-        else if sheepHitBoxX <= botHitBoxX + botHitBoxSize && sheepHitBoxX + sheepHitBoxSize >= botHitBoxX + botHitBoxSize
+        else if x1 <= x2 + size2 && x1 + size1 >= x2 + size2
         {
             xCol = true
         }
         
         //test for same y
-        if sheepHitBoxY <= botHitBoxY && sheepHitBoxY + sheepHitBoxSize >= botHitBoxY
+        if y1 <= y2 && y1 + size1 >= y2
         {
             yCol = true
         }
             
-        else if sheepHitBoxY <= botHitBoxY + botHitBoxSize && sheepHitBoxY + sheepHitBoxSize >= botHitBoxY + botHitBoxSize
+        else if y1 <= y2 + size2 && y1 + size1 >= y2 + size2
         {
             yCol = true
         }
-        
-        if xCol == true && yCol == true
-        {
-            collided = true
-        }
-        return (outOfScreen, collided)
+    
+        return xCol&&yCol
     }
     
     func sheepCollision(bot: robot)

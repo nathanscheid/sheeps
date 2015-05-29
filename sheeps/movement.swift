@@ -44,7 +44,6 @@ class robot
             robImage = robot3!
         }
 
-        //robImage = UIImage(named: "red") as UIImage?
     }
     var imageView = UIImageView()
 
