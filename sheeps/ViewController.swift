@@ -46,6 +46,7 @@ class ViewController: UIViewController {
     var sheep = robot()
     
     var robTime: NSTimer!
+    var spawnCounter = 0
     
     var robMovement: NSTimer!
     
@@ -141,6 +142,9 @@ class ViewController: UIViewController {
         var robotExample = robot()
         
         var startPos = Int(arc4random_uniform(4))
+        var maxSize = 125 + spawnCounter/2
+        
+        robotExample.size = CGFloat(arc4random_uniform(UInt32(maxSize)) + 10)
         robotExample.Vector()
         switch startPos
         {
@@ -167,6 +171,10 @@ class ViewController: UIViewController {
         robotExample.imageView.image = robotExample.robImage
         robotExample.imageView.frame = CGRectMake(robotExample.startX, robotExample.startY, robotExample.size, robotExample.size)
         robotExample.timer =  NSTimer.scheduledTimerWithTimeInterval(0.0167, target: self, selector: Selector("robotMove:"), userInfo: robotExample, repeats: true)
+        if spawnCounter < 120
+        {
+            spawnCounter += 1
+        }
         self.view.addSubview(robotExample.imageView)
     }
     
@@ -346,6 +354,7 @@ class ViewController: UIViewController {
         inGamePlayer.stop()
         robTime.invalidate()
         sheep.timer.invalidate()
+        spawnCounter = 0
         clearView()
         startGame(sender)
     }
